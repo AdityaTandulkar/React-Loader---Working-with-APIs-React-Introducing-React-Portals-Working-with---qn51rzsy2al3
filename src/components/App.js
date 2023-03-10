@@ -22,7 +22,9 @@ const App = () => {
 
   const handleOnClick = () => {
     setIsLoading(LoadingStatus.IN_PROGRESS);
-    fetch(BASE_URL+userId)
+    
+    setTimeout(()=>{
+      fetch(BASE_URL+userId)
       .then(resp => resp.json())
       .then((resp)=>{
         setUserData({
@@ -34,6 +36,7 @@ const App = () => {
         })
         setIsLoading(LoadingStatus.SUCCESS)
       });
+    },2000)
   };
 
   const onChangeHandler = (event) => {
